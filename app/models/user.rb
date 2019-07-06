@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :fullname, presence:true, length:{maximum:35}
 
 
+  has_many:rooms
+
 
 
   def self.from_omniauth(auth)

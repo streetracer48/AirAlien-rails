@@ -1,4 +1,6 @@
 class RoomController < ApplicationController
+  before_action :set_room, except:[:index, :new, :create]
+  
   def index
   end
 
@@ -31,4 +33,12 @@ class RoomController < ApplicationController
 
   def update
   end
+
+ private
+
+ def  set_room
+  @room = Room.find(params[:id])
+ end
+
+  
 end
