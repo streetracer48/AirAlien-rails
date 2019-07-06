@@ -10,8 +10,22 @@ class RoomController < ApplicationController
   def create
     @room = current_user.rooms.build(room_params)
     if @room.save
-       flash[:notice] = "Romm Successfully saved!"
+       flash[:notice] = "Room Successfully saved!"
        redirect_to listing_room_path(@room)
+    else
+       flash[:alert]= "Room can not be saved please try again"
+       render :new
+    end
+  end
+
+  
+  def update
+    if @room.update(room_params)
+      flash[:notice] = "Room successfully updated"
+    else
+      flash[:alert] = "Room cannot be updated!"
+    end
+    redirect_back(fallback_location:request.referer)
   end
 
   def show
@@ -35,8 +49,6 @@ class RoomController < ApplicationController
   def location
   end
 
-  def update
-  end
 
  private
 
