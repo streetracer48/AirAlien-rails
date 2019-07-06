@@ -1,6 +1,6 @@
 class RoomController < ApplicationController
   before_action :set_room, except:[:index, :new, :create]
-  
+
   def index
   end
 
@@ -8,6 +8,10 @@ class RoomController < ApplicationController
   end
 
   def create
+    @room = current_user.rooms.build(room_params)
+    if @room.save
+       flash[:notice] = "Romm Successfully saved!"
+       redirect_to listing_room_path(@room)
   end
 
   def show
@@ -38,6 +42,28 @@ class RoomController < ApplicationController
 
  def  set_room
   @room = Room.find(params[:id])
+ end
+
+ def room_params
+
+   params.require(:room).permit(
+     :home_type,
+     :room_type,
+     :accommodate,
+     :bed_room,
+     :bath_room,
+     :listing_name,
+     :summary,
+     :address,
+     :has_tv,
+     :has_kitchen,
+     :has_aircon,
+     :has_heating,
+     :has_wifi,
+     :price,
+     :active
+   )
+
  end
 
   
