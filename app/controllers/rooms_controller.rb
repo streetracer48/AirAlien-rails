@@ -1,6 +1,9 @@
 class RoomsController < ApplicationController
   before_action :set_room, except:[:index, :new, :create]
   before_action :authenticate_user!, except: :show
+  before_action :is_authorized, only: [:listing, :pricing, :description, 
+ :photo_upload, :amenities, :location, :update
+]
 
   def index
     @room = current_user.rooms
@@ -79,8 +82,14 @@ class RoomsController < ApplicationController
      :price,
      :active
    )
+ end
+
+ def is_authorized
+  unless current_user.id == @room.user_id
+    flash[:alert] = "Unauthorized access!"
+    redirect_to root_url
+  end
 
  end
 
-  
 end
