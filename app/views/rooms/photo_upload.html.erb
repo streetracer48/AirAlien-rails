@@ -11,10 +11,29 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 offset-lg-3">
-                         
+                        <%= form_for @room, url: room_photos_path(@room), method: 'post', html: { multipart: true } do |f| %>
+                        <div class="row">
+                         <div class="col-lg-12">
+                         <div class="form-group">
+                         <span class="btn btn-default btn-file text-babu">
+                         Select Photos 
+                         <%= file_field_tag "images[]", type: :file, multiple: true %>
+                         </span>
+
+                         </div>
+
+                         </div>
+                        </div>
+
+                        <div class="text-center">
+                        <%= f.submit "Add Photos", class: 'btn btn-form' %>
+                        </div>
+                            <% end %>
                         </div>
                     </div>
-
+                    <div id="photos">
+                    <%= render 'photos/photo_list'  %>
+                </div>
                 </div>
             </div>
         </div>

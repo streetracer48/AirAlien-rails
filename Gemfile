@@ -52,5 +52,6 @@ gem 'omniauth-facebook'
 gem 'coffee-script-source', '1.8.0'
 gem 'execjs'
 gem 'paperclip', '~>5.1.0'
+gem "font-awesome-rails"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 
