@@ -8,7 +8,7 @@ class PhotosController <ApplicationController
                 @room.photos.create(image: img)
             end
 
-            @photos = @room.photos
+            @photos = Photo.all
             flash[:notice] = "Photos successfully saved!"
             redirect_back(fallback_location: request.referer)
         end
