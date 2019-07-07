@@ -26,7 +26,11 @@ class RoomsController < ApplicationController
 
   
   def update
-    if @room.update(room_params)
+# for security reason
+     new_params = room_params
+     new_params = room_params.merge(active:true) if is_ready_room
+
+    if @room.update(new_params)
       flash[:notice] = "Room successfully updated"
     else
       flash[:alert] = "Room cannot be updated!"
@@ -55,6 +59,11 @@ class RoomsController < ApplicationController
 
   def location
   end
+
+  def is_ready_room 
+    !@room.active? && !@room.price.blank? && !@room.address.blank? && !@room.summary.blank? 
+
+  end 
 
 
  private
