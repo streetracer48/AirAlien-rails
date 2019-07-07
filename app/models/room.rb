@@ -1,5 +1,6 @@
 class Room < ApplicationRecord
   belongs_to :user
+  has_many :rooms
 
   validates:home_type, presence:true
   validates:room_type, presence:true

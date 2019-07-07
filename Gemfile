@@ -49,8 +49,8 @@ gem 'devise'
 gem 'toastr-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'bootstrap', '~> 4.3.0'
 gem 'coffee-script-source', '1.8.0'
 gem 'execjs'
+gem 'paperclip', '~>5.1.0'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 
