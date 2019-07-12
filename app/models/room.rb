@@ -7,4 +7,12 @@ class Room < ApplicationRecord
   validates:accommodate, presence:true
   validates:bed_room, presence:true
   validates:bath_room, presence:true
+
+def cover_photo()
+  if self.photos.length > 4 #it should be >0 but I'm using >4 for some reason
+    self.photos[0].image.url()
+  else
+    "blank.jpg"
+  end
+ end
 end
