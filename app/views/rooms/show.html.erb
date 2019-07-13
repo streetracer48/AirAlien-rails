@@ -30,21 +30,32 @@
  
  <div class="row text-babu">
  <div class="row text-center">
-     <div class="col-md-3">
+     <div class="col-md-3 col-sm-12">
       <i class="fas fa-home fa-2x"></i>
      </div>
-     <div class="col-md-3">
+     <div class="col-md-3 col-sm-12">
       <i class="fas fa-user-circle fa-2x"></i>
      </div>
-     <div class="col-md-3">
+     <div class="col-md-3 col-sm-12">
       <i class="fas fa-bed fa-2x"></i>
      </div>
-     <div class="col-md-3">
+     <div class="col-md-3 col-sm-12">
       <i class="fas fa-bath fa-2x"></i>
      </div>
   </div>
+  
+   <div class="row text-center">
+     <div class="col-md-3"><%=@room.home_type%></div>
+     <div class="col-md-3"><%= pluralize(@room.accommodate, "Guest") %></div>
+     <div class="col-md-3"><%= pluralize(@room.bed_room, "Bedroom") %></div>
+     <div class="col-md-3"><%= pluralize(@room.bath_room, "Bathroom" )%></div>
+   </div>
+
  </div>
 
+<hr/>
+
+<%# About %>
 
 
 </div>
