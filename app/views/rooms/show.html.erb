@@ -20,7 +20,7 @@
      </div>
 
      <div class="col-md-4 text-center">
-  <%= image_tag gravatar_for(@room.user), class: 'img-circle avatar-sm' %><br/><br/>
+  <%= image_tag gravatar_for(@room.user), class: 'img-circle avatar-small' %><br/><br/>
   <%= @room.user.fullname%>
      </div>
    </div>
@@ -57,5 +57,37 @@
 
 <%# About %>
 
+<div class="row">
+
+<div class="col-md-12">
+ <h3>About This Listing</h3>
+ <p><%=@room.summary %> </p>
+ </div>
+
+</div>
+<hr/>
+ 
+ <%# Amenities %>
+ <div class="row">
+   <div class="col-md-3">
+   <h4>Amenities</h4>
+   </div>
+
+    <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-6">
+      <ul class="amenities">
+      <li class="<%= 'text-line-through' if !@room.is_tv %>">TV</li>
+      <li class="<%= 'text-line-through' if !@room.is_kitchen %>">Kitchen</li>
+      <li class="<%= 'text-line-through' if !@room.is_internet %>">Internet</li>
+      </ul>
+      </div>
+      <div class="col-md-6">
+      <ul class="amenities">
+      <li class="<%= 'text-line-through' if !@room.is_heating %>">Heating</li>
+      <li class="<%= 'text-line-through' if !@room.is_air %>">Air conditional</li>
+      </ul>
+      </div>
+    </div>
 
 </div>
