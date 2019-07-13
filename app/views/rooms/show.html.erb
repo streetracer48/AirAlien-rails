@@ -1,2 +1,50 @@
-<h1>Room#show</h1>
-<p>Find me in app/views/room/show.html.erb</p>
+<%# Image %>
+
+<div class="row">
+
+<div class="col-md-12">
+
+<%= image_tag @room.cover_photo(), width:"100%" %>
+</div>
+</div>
+<br/>
+
+<div class="row">
+
+   <%# Left panel %>
+   <div class="row">
+
+     <div class="col-md-8">
+        <h1> <%= @room.listing_name %> </h1>
+        <%= @room.address %>
+     </div>
+
+     <div class="col-md-4 text-center">
+  <%= image_tag gravatar_for(@room.user), class: 'img-circle avatar-sm' %><br/><br/>
+  <%= @room.user.fullname%>
+     </div>
+   </div>
+   <hr/>
+
+<%# Room Info %>
+ 
+ <div class="row text-babu">
+ <div class="row text-center">
+     <div class="col-md-3">
+      <i class="fas fa-home fa-2x"></i>
+     </div>
+     <div class="col-md-3">
+      <i class="fas fa-user-circle fa-2x"></i>
+     </div>
+     <div class="col-md-3">
+      <i class="fas fa-bed fa-2x"></i>
+     </div>
+     <div class="col-md-3">
+      <i class="fas fa-bath fa-2x"></i>
+     </div>
+  </div>
+ </div>
+
+
+
+</div>
