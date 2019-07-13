@@ -8,6 +8,9 @@ class Room < ApplicationRecord
   validates:bed_room, presence:true
   validates:bath_room, presence:true
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
 def cover_photo()
   if self.photos.length > 4 #it should be >0 but I'm using >4 for some reason
     self.photos[0].image.url()
