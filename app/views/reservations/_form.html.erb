@@ -100,6 +100,8 @@ $.ajax({
           
      var start_date = $('#reservation_start_date').datepicker('getDate')
       var end_date = $('#reservation_end_date').datepicker('getDate')
+
+         var nights = (end_date - start_date)/1000/60/60/24 + 1;
         
         var input = {
            'start_date': start_date,
@@ -110,7 +112,7 @@ $.ajax({
            url:'<%= preview_room_path(@room) %>',
            data:input,
            success:function(data) {
-             console.log(data.conflict)
+             
              if(data.conflict) {
                $('#message').text("these dates are not available");
                $('#preview').hide();
@@ -120,6 +122,10 @@ $.ajax({
               $('#message').text(""); 
                $('#preview').show();
                $('#btn_book').attr('disabled', false)
+
+               var total = nights * <%= @room.price %> 
+               $('#reservation_nights').text(nights)
+                 $('#reservation_total').text(total)
              }
               
            }
@@ -131,11 +137,6 @@ $.ajax({
 
 });
 
-
-
-
- 
-  
 });
 
 
