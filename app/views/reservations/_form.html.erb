@@ -19,7 +19,7 @@
 
       <div class="col-md-12">
         <h4 class="message-alert text-center"><span id="message"></span></h4>
-        <div id="preview">
+        <div id="preview" style="display:none">
             <table class="reservation-table">
               <tbody>
                 <tr>
@@ -44,7 +44,7 @@
             </table><br/>
         </div>
        
-          <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block" %>
+          <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block", disabled:true %>
         <% else %>
           <%= f.submit "Request Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
         
@@ -63,7 +63,6 @@
 
 $(function (){
   unavailableDates=[];
-  console.log(unavailableDates)
 
 $.ajax({
   url:'<%= preload_room_path(@room) %>',
@@ -99,17 +98,45 @@ $.ajax({
       onSelect: function(selected) {
             $('#reservation_start_date').datepicker("option", "maxDate", selected);
           
+     var start_date = $('#reservation_start_date').datepicker('getDate')
+      var end_date = $('#reservation_end_date').datepicker('getDate')
+
+         var nights = (end_date - start_date)/1000/60/60/24 + 1;
+        
+        var input = {
+           'start_date': start_date,
+           'end_date': end_date
+        }
+
+        $.ajax({
+           url:'<%= preview_room_path(@room) %>',
+           data:input,
+           success:function(data) {
+             
+             if(data.conflict) {
+               $('#message').text("these dates are not available");
+               $('#preview').hide();
+               $('#btn_book').attr('disabled', true)
+             }
+             else {
+              $('#message').text(""); 
+               $('#preview').show();
+               $('#btn_book').attr('disabled', false)
+
+               var total = nights * <%= @room.price %> 
+               $('#reservation_nights').text(nights)
+                 $('#reservation_total').text(total)
+             }
+              
+           }
+        })
+
           }
   });
   }
 
 });
 
-
-
-
- 
-  
 });
 
 
