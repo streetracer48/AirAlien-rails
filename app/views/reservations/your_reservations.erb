@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-3">
+  <ul class="sidebar-list">
+ <li class="sidebar-item"> <%= link_to "Your Listing", 
+ rooms_path, class:"sidebar-link "%>
+ </li> 
+ <li class="sidebar-item"> <%= link_to "Your Trips", 
+ your_trips_path, class:"sidebar-link" %>
+ </li> 
+ <li class="sidebar-item"> <%= link_to "Your Reservations", 
+ your_reservations_path, class:"sidebar-link active" %>
+ </li> 
+
+  </ul>
+
+  </div>
+
+  <div class="col-md-9">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+  Your Reservations
+    </div>
+   <div class="panel-body">
+   <% @rooms.each do |room| %>
+
+    <% room.reservations.each do | reservation | %>
+
+    <div class="row">
+        <div class="col-md-2">
+              <%= reservation.start_date.strftime('%v') %>
+            </div>
+
+      <div class="col-md-2">
+      <%= image_tag reservation.room.cover_photo(), :size => "100x100", :crop => :fill  %>
+      </div> 
+
+      <div class="col-md-5">
+   <h4><%= link_to reservation.room.listing_name, room_path(reservation.room) %> </h4>
+    
+      </div>
+      <div class="col-md-3 right">
+ <%= image_tag gravatar_for(reservation.user), class:"img-circle avatar-small"  %>
+ <br/><br/><span><%= link_to user_path(reservation.user) do %>
+ <%= reservation.user.fullname%>
+ <% end %>
+ </span>
+      </div>
+      
+      </div>
+      <hr/>
+    <% end %>
+   <% end %>
+   </div>
+  </div>
+  </div>
+
+</div>
