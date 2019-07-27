@@ -30,6 +30,12 @@ class ReservationsController < ApplicationController
 
     end
 
+    def your_reservations
+
+        @rooms = current_user.rooms # find all the rooms belonging to current user as defined in the user model user.rb
+
+    end
+
      private
     def reservation_params
         params.require(:reservation).permit(:start_date, :end_date)
