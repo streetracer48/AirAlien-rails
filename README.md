@@ -1,10 +1,10 @@
-# airbnb-rails
 
-## Fullstack-Blitz
+
+## AirAlien
 
 ## About
 
- `Email survey, this is simple fullstack web based apps, where people can survey their picnic, events compegin`
+ `AirAlien is a platform where hosts, people wanting to rent out their property, and travellers, who avail the rented property, can come and meet each other on the platform. Travellers can look up all the listings whenever they like, but in order to book any reservation, they have to create an AirAlien profile. Travellers can contact the hosts by filling in an online form that can be found on every listing page. Once they’ve found the right type of property, they can go ahead and submit the reservation form by clicking ‘Book It.’`
 
  
 
@@ -25,9 +25,6 @@
 <img src="app/assets/images/airbooking.png" width="800" height="400">
 
 -rental host profie page show their reservations ,`
-<img src="app/assets/images/airprofile.png" width="800" height="400">
-
--User rent host list,`
 <img src="app/assets/images/airprofile.png" width="800" height="400">
 
 
