@@ -4,7 +4,7 @@
 
 ## About
 
- `AirAlien is a platform where hosts, people wanting to rent out their property, and travellers, who avail the rented property, can come and meet each other on the platform. Travellers can look up all the listings whenever they like, but in order to book any reservation, they have to create an AirAlien profile. Travellers can contact the hosts by filling in an online form that can be found on every listing page. Once they’ve found the right type of property, they can go ahead and submit the reservation form by clicking ‘Book It.’`
+ `AirAlien is a platform where hosts people wanting to rent out their property, and travellers, who avail the rented property, can come and meet each other on the platform. Travellers can look up all the listings whenever they like, but in order to book any reservation, they have to create an AirAlien profile. Travellers can contact the hosts by filling in an online form that can be found on every listing page. Once they’ve found the right type of property, they can go ahead and submit the reservation form by clicking ‘Book It.’`
 
  
 
