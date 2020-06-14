@@ -53,7 +53,7 @@ gem 'coffee-script-source', '1.8.0'
 gem 'execjs'
 gem 'paperclip', '~>5.2.0'
 gem 'font-awesome-rails'
-gem 'geocoder', '~>1.4'
+gem 'geocoder', '~>1.6'
 gem 'jquery-ui-rails', '~>5.0'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 
